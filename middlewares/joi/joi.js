@@ -5,7 +5,15 @@ const joiSchema = {
         name:Joi.string().min(5).required(),
         email:Joi.string().required(),
         password:Joi.string().min(6).required()
-    })
+        }),
+    login:Joi.object().keys({
+        email:Joi.string().min(5).required(),
+        password:Joi.string().min(6).required()
+        }),
+    update:Joi.object().keys({
+        name:Joi.string().min(5),
+        password:Joi.string().min(6)
+    })    
 };
 
 const joiValidation = (schema,data)=>{

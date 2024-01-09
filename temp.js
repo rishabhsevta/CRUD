@@ -31,10 +31,12 @@ userModel.insertMany(payload);
 
 */
 
-
+//Bcrypt
+/*
 const bcrypt = require('bcrypt');
-  const data= bcrypt.hashSync('rishabhsevta',10);
- console.log(bcrypt.compareSync('rishabhsevta',data));
+const data= bcrypt.hashSync('rishabhsevta',10);
+console.log(bcrypt.compareSync('rishabhsevta',encryptedPassword));
+ */
 
 
 
@@ -46,6 +48,17 @@ const bcrypt = require('bcrypt');
 
 
 
+ const twilio = require('twilio');
+ const client = new twilio('AC137ea60e55217ac51488579446d917d0','057f2aef40ca0e8d3519ef4b796d6628');
+ client.messages.create({
+    body:"927841",
+    to:'+918239563000',
+    from:'+17178446696'
+ }).then((message)=>{
+    console.log("message sent",message);
+ }).catch((error)=>{
+    console.log("error while sending",error);
+ })
 
 
 
