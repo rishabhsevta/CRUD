@@ -32,37 +32,17 @@ userModel.insertMany(payload);
 */
 
 
-
-const express = require('express');
-const session = require('express-session');
-
-const app = express();
-
-// Use the express-session middleware
-app.use(session({
-  secret: 'your_secret_key', // Secret used to sign the session ID cookie
-  resave: false,
-  saveUninitialized: true
-}));
-
-// Example route using sessions
-app.get('/', (req, res) => {
-  // Access session data
-  console.log(req.session);
-  if (req.session.views) {
-    req.session.views++;
-  } else {
-    req.session.views = 1;
-  }
-
-  res.send(`Views: ${req.session.views}`);
-});
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+const bcrypt = require('bcrypt');
+  const data= bcrypt.hashSync('rishabhsevta',10);
+ console.log(bcrypt.compareSync('rishabhsevta',data));
 
 
+
+ //database queries
+ /*
+ model.findOne({query},{projection});  returns that object if found otherwise returns null
+ model.find({query},{projection}); returns array of objects if found otherwise returns empty array
+ */
 
 
 
